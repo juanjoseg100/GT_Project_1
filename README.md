@@ -3,7 +3,6 @@
 
 The files in this repository were used to configure the network depicted below.
 
-! (Images/Network_Diagram.png)
 ![TODO: Update the path with the name of your screenshot of docker ps output](Images/Network_Diagram.png)
 
 
