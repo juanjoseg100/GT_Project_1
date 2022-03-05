@@ -39,6 +39,8 @@ The configuration details of each machine may be found below.
 | Web1     | Web App  | 10.0.0.5   | Linux            |
 | Web2     | Web App  | 10.0.0.6   | Linux            |
 | Web3     | Web App  | 10.0.0.7   | Linux            |
+| ELK      | Kibana   | 10.0.0.8   | Linux            |
+| Loadbal. | LB       | x.x.x.91   | Linux            |
 
 ### Access Policies
 
