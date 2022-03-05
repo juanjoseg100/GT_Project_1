@@ -24,7 +24,7 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly available, in addition to restricting access to the network.
-- Load balancers distribute the traffic and distribute it across multiple resources, also can offload traffic and encrypt/decrypt data.
+- Load balancers distribute the traffic and distribute it across multiple resources, also can offload traffic and encrypt/decrypt data, and mitigate DoS attacks.
 - A jump box helps you manage your infrastructure from a centralized device that will be the only one(s) allowed to ssh and manage specific configurations in your environment.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the services running and system files.
@@ -85,15 +85,18 @@ We have installed the following Beats on these machines:
 - Metricbeat
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- We can collect and ship log files, collect and report various system-level metrics for various sytems and platforms.
+- We can build tens of dials within a dashboard with logs and metrics that we want to monitor like AWS, S3's, Database Overview, Overiview of Docker containers, and many more.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the Filebeat-config.yml file to your WebVM's.
+- Update the hosts file to include the Ip addresses of your WebVM's.
+- Run the playbook, and navigate to Module Status and Check Data to check that the installation worked as expected, as shown in the image below:.
+
+![TODO: Update the path with the name of your screenshot of docker ps output](Images/elk_receiving_logs.png)
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
