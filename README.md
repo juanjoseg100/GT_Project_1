@@ -39,7 +39,7 @@ The configuration details of each machine may be found below.
 | Web1     | Web App  | 10.0.0.5   | Linux            |
 | Web2     | Web App  | 10.0.0.6   | Linux            |
 | Web3     | Web App  | 10.0.0.7   | Linux            |
-| ELK      | Kibana   | 10.0.0.8   | Linux            |
+| ELK      | Kibana   | 10.1.0.4   | Linux            |
 | Loadbal. | LB       | x.x.x.91   | Linux            |
 
 ### Access Policies
@@ -98,9 +98,39 @@ SSH into the control node and follow the steps below:
 
 ![TODO: Update the path with the name of your screenshot of docker ps output](Images/elk_receiving_logs.png)
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
+Answer the following questions to fill in the blanks:
+- Which file is the playbook? Where do you copy it? 
+I have created one file that includes filebeat and metricbeat which is pushed to webservers for installation; to make it easier to push both files running one command.
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+- Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
+I created to hosts groups within the host file that defines which IP addresses are part of the ELK group and which ones are part of the webservers group, then I ran the playbooks pointing to either webservers or elk machines based on the configuration file.
+
+- Which URL do you navigate to in order to check that the ELK server is running?
+I needed to go to the ELK VM IP address on port 5601 to make sure ELK was running. (http://10.1.0.4:5601)
+
+As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc.
+- To download the filebeat config file you can do it running the following command:
+curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat >> /etc/ansible/filebeat-config.yml
+
+- Once you download it, make sure to edit it to have your IP address added to the hosts setting.
+- Then create another playbook to accomplish the Linux Filebeat installation.
+- The playbook should:
+
+Download the .deb file from artifacts.elastic.co.
+Install the .deb file using the dpkg command shown below:
+
+dpkg -i filebeat-7.4.0-amd64.deb
+
+
+Copy the Filebeat configuration file from your Ansible container to your WebVM's where you just installed Filebeat.
+
+You can use the Ansible module copy to copy the entire configuration file into the correct place.
+You will need to place the configuration file in a directory called files in your Ansible directory.
+
+
+Run the filebeat modules enable system command.
+Run the filebeat setup command.
+Run the service filebeat start command.
+Enable the Filebeat service on boot.
+
+- After entering your information into the Filebeat configuration file and Ansible playbook, you should have run: ansible-playbook filebeat-playbook.yml
