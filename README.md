@@ -108,7 +108,7 @@ I created to hosts groups within the host file that defines which IP addresses a
 - Which URL do you navigate to in order to check that the ELK server is running?
 I needed to go to the ELK VM IP address on port 5601 to make sure ELK was running. (http://10.1.0.4:5601)
 
-As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc.
+Provide the specific commands the user will need to run to download the playbook, update the files, etc.
 - To download the filebeat config file you can do it running the following command:
 curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat >> /etc/ansible/filebeat-config.yml
 
