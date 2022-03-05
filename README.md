@@ -68,8 +68,8 @@ need to connect to each device.
 
 The playbook implements the following tasks:
 - Installs docker in the virtual machine, then we pushed python, increased the virtual memory, downloaded docker modules, opened specific TCP ports to allow 
-- connectivity and allow ELK to run properly and made sure that the docker service was re-enabled in case of a server boot.
-- 
+  connectivity and allow ELK to run properly and made sure that the docker service was re-enabled in case of a server boot.
+
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
 ![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
