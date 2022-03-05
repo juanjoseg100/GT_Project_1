@@ -1,9 +1,4 @@
 # GT_Project_1
-## GT Project #1
-### Automated ELK Stack Deployment
-The files in this repository were used to configure the network depicted below.
-
-https://gt.bootcampcontent.com/GT-Coding-Boot-Camp/gt-virt-cyber-pt-11-2021-u-lol/-/blob/master/Images/Network_Diagram.png
 ## Automated ELK Stack Deployment
 
 The files in this repository were used to configure the network depicted below.
